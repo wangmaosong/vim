@@ -1,0 +1,4 @@
+该.vim文件中有我自己割更改的文件：
+				包括		.vim/snippets/c.snippets
+						.vim/snippets/cpp.snippets
+						.vim/plugin/code_complete.vim    “极其重要”

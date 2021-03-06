@@ -1,0 +1,57 @@
+# Read File Into Vector
+snippet readfile
+	std::vector<char> vec;
+	if (FILE *${2:fp} = fopen(${1:"filename"}, "r")) {
+		char buf[1024];
+		while (size_t len = fread(buf, 1, sizeof(buf), $2))
+			vec.insert(vec.end(), buf, buf + len);
+		fclose($2);
+	}${3}
+# std::map
+snippet map
+	std::map<${1:key}, ${2:value}> map${3};
+# std::vector
+snippet vector
+	std::vector<${1:char}> vec${2};${3}
+# Namespace
+snippet ns
+	namespace ${1:`Filename('', 'my')`} {
+		${2}
+	} /* $1 */
+# #include <...>
+snippet in
+	#include <${1:iostream}>${2}
+# Class
+snippet cl
+	class ${1:`Filename('$1', 'name')`} ${2:/* : parent class */} {
+	public:
+		$1 (${3:arguments});
+		virtual ~$1 ();
+
+		${4:/* data */}	
+
+	protected:
+		${5:/* data */}
+	
+	private:
+		${6:/* data */}
+	};
+#Cout
+snippet cout
+	cout << "${1:/* message */}" << endl;${2}
+#Cin
+snippet cin
+	cin >> ${1:/* value */};${2}
+#Using namespace
+snippet using
+	using namespace ${1:std};${2}
+# For Loop
+snippet ifor
+	for (${1:int} ${2:i} = 0; $2 < ${3:count}; $2${4:++}) {
+		${5:/* code */}
+	}
+# Custom For Loop
+snippet iforr
+	for (${1:int} ${2:i} = ${3:0}; ${4:$2 < 10}; $2${5:++}) {
+		${6:/* code */}
+	}
